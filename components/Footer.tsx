@@ -8,7 +8,7 @@ const Sfooter = styled.footer`
   justify-content: center;
   align-items: center;
 `;
-const Simg = styled.footer`
+const Simg = styled.img`
   height: 1em;
   margin: 5px;
 `;

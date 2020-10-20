@@ -1,17 +1,11 @@
 import Head from 'next/head'
 import Header from 'components/Header'
 import Footer from 'components/Footer'
-import { useEffect } from 'react'
-import { GetStaticProps } from 'next';
-import { ContainerDiv,  Main } from '../components/index.styles';
+import { ContainerDiv,  Main, Sa } from '../components/index.styles';
+import Link from 'next/link'
 
-interface Props {
-  data: Array<{
-    body: string
-  }>
-}
 
-export default function Home({data}: Props) {
+export default function Home() {
 
   return (
     <ContainerDiv>
@@ -22,29 +16,18 @@ export default function Home({data}: Props) {
 
       <Main>
         <Header title="Welcome to my app!" />
+        <div>
+          <Link  href="/" passHref><Sa>Home</Sa></Link>
+          <Link href="/comments" passHref><Sa>Comments</Sa></Link>
+        </div>
         <p className="description">
           Get started by editing <code>pages/index.js</code>
         </p>
         <br></br>
-        <div>
-          {
-            data.map((item, i) => <div key={i}>{item.body}</div>)
-          }
-        </div>
       </Main>
 
       <Footer />
 
     </ContainerDiv>
   )
-}
-
-export const getStaticProps: GetStaticProps<Props> = async () => {
-  const rsp = await fetch('https://api.github.com/repos/gentgaashi/netlify-next-starter-test/issues/comments');
-  const data = await rsp.json();
-
-  return {
-    props: {data},
-    revalidate: 1
-  }
 }

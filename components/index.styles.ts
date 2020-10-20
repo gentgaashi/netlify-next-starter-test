@@ -8,6 +8,7 @@ export const ContainerDiv = styled.div`
     align-items: center;
   
 `;
+
 export const Main = styled.main`
     padding: 5rem 0;
     flex: 1;
@@ -16,12 +17,18 @@ export const Main = styled.main`
     justify-content: center;
     align-items: center;    
 `;
+
 export const Code = styled.main`
     background: #fafafa;
     border-radius: 5px;
     padding: 0.75rem;
     font-family: Menlo, Monaco, Lucida Console, Courier New, monospace;     
 `;
+
+export const Sa = styled.a`
+    margin-right: 10px;    
+`;
+
 export const GlobalStyle = createGlobalStyle`
     html,
     body {
