@@ -3,7 +3,7 @@ import Header from 'components/Header'
 import Footer from 'components/Footer'
 import { useEffect } from 'react'
 import { GetStaticProps } from 'next';
-import { ContainerDiv,  Main } from './index.styles';
+import { ContainerDiv,  Main } from '../components/index.styles';
 
 interface Props {
   data: Array<{
