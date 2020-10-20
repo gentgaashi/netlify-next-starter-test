@@ -28,6 +28,5 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
 
   return {
     props: {issues: data},
-    revalidate: 1
   }
 }
