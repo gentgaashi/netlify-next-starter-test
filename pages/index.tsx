@@ -1,8 +1,19 @@
 import Head from 'next/head'
 import Header from 'components/Header'
 import Footer from 'components/Footer'
+import { useEffect } from 'react'
+import { GetStaticProps } from 'next';
 
-export default function Home() {
+interface Props {
+  data: Array<{
+    body: string
+  }>
+ 
+}
+
+export default function Home({data}: Props) {
+
+  
   return (
     <div className="container">
       <Head>
@@ -15,6 +26,12 @@ export default function Home() {
         <p className="description">
           Get started by editing <code>pages/index.js</code>
         </p>
+        <br></br>
+        <div>
+          {
+            data.map((item, i) => <div key={i}>{item.body}</div>)
+          }
+        </div>
       </main>
 
       <Footer />
@@ -60,4 +77,14 @@ export default function Home() {
       `}</style>
     </div>
   )
+}
+
+export const getStaticProps: GetStaticProps<Props> = async () => {
+  const headers = {github_token: '078b57e036ae904fd3765e8765697040f4d07935 '};
+  const rsp = await fetch('https://api.github.com/repos/gentgaashi/netlify-next-starter-test/issues/comments', {headers: {Authorization: 'token '+headers.github_token}});
+  const data = await rsp.json();
+
+  return {
+    props: {data}
+  }
 }
