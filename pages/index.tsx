@@ -19,6 +19,7 @@ export default function Home() {
         <div>
           <Link  href="/" passHref><Sa>Home</Sa></Link>
           <Link href="/comments" passHref><Sa>Comments</Sa></Link>
+          <Link href="/issues" passHref><Sa>Issues</Sa></Link>
         </div>
         <p className="description">
           Get started by editing <code>pages/index.js</code>
