@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import {  GetServerSideProps } from 'next';
+import {  GetStaticProps } from 'next';
 import Comments from 'components/Comments';
 
 interface Props {
@@ -8,12 +8,12 @@ interface Props {
   }>
 }
 
-export default function CommentsPage({issues}: Props) {
+export default function IssuesPage({issues}: Props) {
 
   return (
     <div>
         <Head>
-            <title>Comments</title>
+            <title>Issues</title>
             <link rel="icon" href="/favicon.ico" />
         </Head>
 
@@ -22,11 +22,12 @@ export default function CommentsPage({issues}: Props) {
   )
 }
 
-export const getServerSideProps: GetServerSideProps<Props> = async (context) => {
+export const getStaticProps: GetStaticProps<Props> = async () => {
   const rsp = await fetch('https://api.github.com/repos/gentgaashi/netlify-next-starter-test/issues');
   const data = await rsp.json();
 
   return {
     props: {issues: data},
+    revalidate: 1
   }
 }
