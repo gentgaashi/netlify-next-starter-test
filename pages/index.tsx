@@ -13,7 +13,7 @@ interface Props {
 
 export default function Home({data}: Props) {
 
-  
+  console.log(data, 'sssssssssssssssssssssssssss')
   return (
     <div className="container">
       <Head>
@@ -80,11 +80,11 @@ export default function Home({data}: Props) {
 }
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const headers = {github_token: '078b57e036ae904fd3765e8765697040f4d07935 '};
-  const rsp = await fetch('https://api.github.com/repos/gentgaashi/netlify-next-starter-test/issues/comments', {headers: {Authorization: 'token '+headers.github_token}});
+  const rsp = await fetch('https://api.github.com/repos/gentgaashi/netlify-next-starter-test/issues/comments');
   const data = await rsp.json();
 
   return {
-    props: {data}
+    props: {data},
+    revalidate: 1
   }
 }
