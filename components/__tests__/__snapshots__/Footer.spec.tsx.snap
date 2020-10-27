@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`With Enzyme to match snapshot 1`] = `
+<Fragment>
+  <Sfooter>
+    <p>
+      Hi Next
+    </p>
+    Made with 
+    <Simg
+      alt="Netlify Logo"
+      src="/netliheart.svg"
+    />
+     for you
+  </Sfooter>
+</Fragment>
+`;
